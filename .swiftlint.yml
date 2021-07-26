@@ -1,0 +1,81 @@
+#
+#  swifllint.yml
+#  hastee
+#
+#  Created by Anton Honcharov on 12/15/20.
+#  Copyright © 2020 OlDor. All rights reserved.
+#
+
+# Find all the available rules by running:
+# swiftlint rules
+
+force_cast: warning
+force_try: warning
+trailing_semicolon: error
+empty_count: error
+closing_brace: error
+opening_brace: error
+return_arrow_whitespace: error
+statement_position: error
+colon: error
+comma: error
+
+line_length:
+  warning: 100
+  error: 500
+
+file_length:
+  warning: 600
+  error: 4000 # TODO: FIX to 1000
+
+function_body_length:
+  warning: 40
+  error: 100
+
+# Only the rules specified in this list will be enabled.
+# Cannot be specified alongside disabled_rules or opt_in_rules
+only_rules:
+
+# This is an entirely separate list of rules that are only run by the analyze command.
+# All analyzer rules are opt-in,
+# so this is the only configurable rule list,
+# there are no equivalents for disabled_rules only_rules
+analyzer_rules:
+
+# paths to include during linting. `--path` is ignored if present.
+included:
+
+# ignoring pathes during linting
+excluded:
+  - Carthage
+  - Pods
+  - build
+disabled_rules: # rule identifiers to exclude from running
+  - weak_delegate
+
+# TODO: NEED TO FIX
+  - empty_count
+  - type_name
+  - identifier_name
+  - function_body_length
+  - cyclomatic_complexity
+
+opt_in_rules: # some rules are only opt-in
+  - empty_count
+  - force_unwrapping
+  - legacy_constant
+  - legacy_constructor
+  - private_action
+  - private_outlet
+
+# configurable rules can be customized from this configuration file
+# binary rules can set their severity level
+
+
+line_length: 100
+type_body_length:
+  warning: 300
+  error: 400
+
+
+# reporter: "json" # reporter type (xcode, json, csv, checkstyle)
